@@ -83,3 +83,13 @@ $di->setShared('session', function () {
 
     return $session;
 });
+
+$di->set('mongo', function () {
+    $mongo = new MongoClient();
+    return $mongo->selectDB('cek_ongkir');
+}, true);
+
+$di->set('collectionManager', function(){
+    return new Phalcon\Mvc\Collection\Manager();
+}, true);
+

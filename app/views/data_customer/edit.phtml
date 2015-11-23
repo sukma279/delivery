@@ -1,0 +1,57 @@
+
+<?php echo $this->getContent(); ?>
+
+<?php echo $this->tag->form("data_customer/save") ?>
+
+<table width="100%">
+    <tr>
+        <td align="left"><?php echo $this->tag->linkTo(array("data_customer", "Back")) ?></td>
+        <td align="right"><?php echo $this->tag->submitButton("Save") ?></td>
+    </tr>
+</table>
+
+<div align="center">
+    <h1>Edit data_customer</h1>
+</div>
+
+<table>
+    <tr>
+        <td align="right">
+            <label for="nama_pemesan">nama_pemesan</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("nama_pemesan", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="alamat">Alamat</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("alamat", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="kabupaten">Kabupaten</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("kabupaten", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="no_tlp">no_tlp</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("no_tlp", "type" => "number")) ?>
+        </td>
+    </tr>
+
+    <tr>
+        <td><?php echo $this->tag->hiddenField("_id") ?></td>
+        <td><?php echo $this->tag->submitButton("Save") ?></td>
+    </tr>
+</table>
+
+</form>
