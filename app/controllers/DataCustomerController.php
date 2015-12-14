@@ -19,38 +19,15 @@ class DataCustomerController extends ControllerBase
      */
     public function searchAction()
     {
-
-        $numberPage = 1;
-        if ($this->request->isPost()) {
-            $query = Criteria::fromInput($this->di, "DataCustomer", $_POST);
-            $this->persistent->parameters = $query->getParams();
-        } else {
-            $numberPage = $this->request->getQuery("page", "int");
-        }
-
-        $parameters = $this->persistent->parameters;
-        if (!is_array($parameters)) {
-            $parameters = array();
-        }
-        $parameters["order"] = "_id";
-
-        $data_customer = DataCustomer::find($parameters);
-        if (count($data_customer) == 0) {
-            $this->flash->notice("The search did not find any data_customer");
-
-            return $this->dispatcher->forward(array(
-                "controller" => "data_customer",
-                "action" => "index"
-            ));
-        }
-
-        $paginator = new Paginator(array(
-            "data" => $data_customer,
-            "limit"=> 10,
-            "page" => $numberPage
-        ));
-
-        $this->view->page = $paginator->getPaginate();
+        $this->view->disable();
+        $this->response->setContentType('application/json');
+        /*tmbh ispost*/
+        $data = DataCustomer::findFirst();
+        #echo $data->nama;
+        #$echo $data->alamat;
+        #$echo $data->no_tlp;
+        echo json_encode($data);
+        #print_r($data);
     }
 
     /**
