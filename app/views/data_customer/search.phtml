@@ -17,6 +17,7 @@
     <thead>
         <tr>
             <th>Id</th>
+            <th>Kode</th>
             <th>Nama</th>
             <th>Alamat</th>
             <th>Kabupaten</th>
@@ -24,15 +25,16 @@
          </tr>
     </thead>
     <tbody>
-    <?php foreach ($page->items as $data_customer) { ?>
+    <?php foreach ($item as $data) { ?>
         <tr>
-            <td><?php echo $data_customer->_id ?></td>
-            <td><?php echo $data_customer->nama_pemesan ?></td>
-            <td><?php echo $data_customer->alamat ?></td>
-            <td><?php echo $data_customer->kabupaten ?></td>
-            <td><?php echo $data_customer->no_tlp ?></td>
-            <td><?php echo $this->tag->linkTo(array("data_customer/edit/" . $data_customer->_id, "Edit")); ?></td>
-            <td><?php echo $this->tag->linkTo(array("data_customer/delete/" . $data_customer->_id, "Delete")); ?></td>
+            <td><?php echo $data->_id ?></td>
+            <td><?php echo $data->kode_pemesan ?></td>
+            <td><?php echo $data->nama_pemesan ?></td>
+            <td><?php echo $data->alamat ?></td>
+            <td><?php echo $data->kabupaten ?></td>
+            <td><?php echo $data->no_tlp ?></td>
+            <td><?php echo $this->tag->linkTo(array("data_customer/edit/" . $data->kode_pemesan, "Edit")); ?></td>
+            <td><?php echo $this->tag->linkTo(array("data_customer/delete/" . $data->kode_pemesan, "Delete")); ?></td>
         </tr>
     <?php } ?>
     </tbody>
@@ -40,13 +42,7 @@
         <tr>
             <td colspan="2" align="right">
                 <table align="center">
-                    <tr>
-                        <td><?php echo $this->tag->linkTo("data_customer/search", "First") ?></td>
-                        <td><?php echo $this->tag->linkTo("data_customer/search?page=" . $page->before, "Previous") ?></td>
-                        <td><?php echo $this->tag->linkTo("data_customer/search?page=" . $page->next, "Next") ?></td>
-                        <td><?php echo $this->tag->linkTo("data_customer/search?page=" . $page->last, "Last") ?></td>
-                        <td><?php echo $page->current, "/", $page->total_pages ?></td>
-                    </tr>
+                    
                 </table>
             </td>
         </tr>

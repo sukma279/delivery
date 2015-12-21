@@ -19,16 +19,29 @@ class DataCustomerController extends ControllerBase
      */
     public function searchAction()
     {
-        $this->view->disable();
-        $this->response->setContentType('application/json');
+        //$this->view->disable();
+       // $this->response->setContentType('application/json');
         /*tmbh ispost*/
-        $data = DataCustomer::findFirst();
-        #echo $data->nama;
-        #$echo $data->alamat;
+        $nama = $this->request->getPost("nama_pemesan");
+        If($nama<>""){
+            $data = DataCustomer::find( array(
+        array(
+            "nama_pemesan" => $nama
+
+        )
+        )); 
+        }
+        else {
+        $data = DataCustomer::find();
+        }
+       
+        //echo $data->nama_pemesan;
+        //echo $data->alamat;
         #$echo $data->no_tlp;
-        echo json_encode($data);
-        #print_r($data);
-    }
+        //echo json_encode($data);
+        #print_r($data)
+         $this->view->item = $data;
+        }
 
     /**
      * Displays the creation form
@@ -48,7 +61,11 @@ class DataCustomerController extends ControllerBase
 
         if (!$this->request->isPost()) {
 
-            $data_customer = DataCustomer::findFirstBy_id($_id);
+            $data_customer = DataCustomer::findFirst(array(
+            array(
+            "kode_pemesan" => $_id
+            )
+            ));
             if (!$data_customer) {
                 $this->flash->error("data_customer was not found");
 
@@ -60,7 +77,8 @@ class DataCustomerController extends ControllerBase
 
             $this->view->_id = $data_customer->_id;
 
-            $this->tag->setDefault("_id", $data_customer->_id);
+            //$this->tag->setDefault("_id", $data_customer->_id);
+            $this->tag->setDefault("kode_pemesan", $data_customer->kode_pemesan);
             $this->tag->setDefault("nama_pemesan", $data_customer->nama_pemesan);
             $this->tag->setDefault("alamat", $data_customer->alamat);
             $this->tag->setDefault("kabupaten", $data_customer->kabupaten);
@@ -84,6 +102,7 @@ class DataCustomerController extends ControllerBase
 
         $data_customer = new DataCustomer();
 
+        $data_customer->kode_pemesan = $this->request->getPost("kode_pemesan");
         $data_customer->nama_pemesan = $this->request->getPost("nama_pemesan");
         $data_customer->alamat = $this->request->getPost("alamat");
         $data_customer->kabupaten = $this->request->getPost("kabupaten");
@@ -124,9 +143,15 @@ class DataCustomerController extends ControllerBase
             ));
         }
 
-        $_id = $this->request->getPost("_id");
+        $_id = $this->request->getPost("kode_pemesan");
 
-        $data_customer = DataCustomer::findFirstBy_id($_id);
+
+          $data_customer = DataCustomer::findFirst(array(
+        array(
+            "kode_pemesan" => $_id
+
+        )
+        ));
         if (!$data_customer) {
             $this->flash->error("data_customer does not exist " . $_id);
 
@@ -136,6 +161,7 @@ class DataCustomerController extends ControllerBase
             ));
         }
 
+        $data_customer->kode_pemesan = $this->request->getPost("kode_pemesan");
         $data_customer->nama_pemesan = $this->request->getPost("nama_pemesan");
         $data_customer->alamat = $this->request->getPost("alamat");
         $data_customer->kabupaten = $this->request->getPost("kabupaten");
@@ -172,7 +198,13 @@ class DataCustomerController extends ControllerBase
     public function deleteAction($_id)
     {
 
-        $data_customer = DataCustomer::findFirstBy_id($_id);
+      
+        $data_customer = DataCustomer::findFirst(array(
+        array(
+            "kode_pemesan" => $_id
+
+        )
+        ));
         if (!$data_customer) {
             $this->flash->error("data_customer was not found");
 

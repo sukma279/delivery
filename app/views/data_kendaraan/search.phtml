@@ -1,0 +1,48 @@
+<?php use Phalcon\Tag; ?>
+
+<?php echo $this->getContent(); ?>
+
+<table width="100%">
+    <tr>
+        <td align="left">
+            <?php echo $this->tag->linkTo(array("data_kendaraan/index", "Go Back")); ?>
+        </td>
+        <td align="right">
+            <?php echo $this->tag->linkTo(array("data_kendaraan/new", "Create ")); ?>
+        </td>
+    </tr>
+</table>
+
+<table class="browse" align="center">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nomor Plat</th>
+            <th>jenis_kendaraan</th>
+            <th>nomor_stnk</th>
+            <th>kapasitas</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($item as $data) { ?>
+        <tr>
+            <td><?php echo $data->_id ?></td>
+            <td><?php echo $data->plat_nomor ?></td>
+            <td><?php echo $data->jenis_kendaraan ?></td>
+            <td><?php echo $data->nomor_stnk ?></td>
+            <td><?php echo $data->kapasitas ?></td>
+            <td><?php echo $this->tag->linkTo(array("data_kendaraan/edit/" . $data->plat_nomor, "Edit")); ?></td>
+            <td><?php echo $this->tag->linkTo(array("data_kendaraan/delete/" . $data->plat_nomor, "Delete")); ?></td>
+        </tr>
+    <?php } ?>
+    </tbody>
+    <tbody>
+        <tr>
+            <td colspan="2" align="right">
+                <table align="center">
+                    
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
