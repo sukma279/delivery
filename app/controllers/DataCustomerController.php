@@ -234,4 +234,11 @@ class DataCustomerController extends ControllerBase
         ));
     }
 
+    public function createpdfAction()
+    {
+        $getdata=DataCustomer::find();
+        $this->view->datas=$getdata;
+ 
+    }
+
 }

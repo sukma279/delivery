@@ -1,5 +1,10 @@
 <?php
-
+use Phalcon\Session\Adapter\Files as Session;
+ $di->setShared('session', function () {
+        $session = new Session();
+        $session->start();
+        return $session;
+        });
 class LoginController extends \Phalcon\Mvc\Controller
 {
 
@@ -9,43 +14,40 @@ class LoginController extends \Phalcon\Mvc\Controller
 		
     }
 
-    private function _registerSession(User $user)
-    {
-  $this->session->set('auth', array(
-            'isLog' => 'Y',
-            'id' => $user->_id,
-            'username' => $user->username
-        ));
-    }
+    
   
  public function prosesloginAction()
  {
+       
+
         if ($this->request->isPost()) {
-   $username = $this->request->getPost('username');
+             $username = $this->request->getPost('username');
             $password = $this->request->getPost('password');
             $tbluser = User::findFirst(
-            	array(
+            	
        				 array(
-           				 'username' => '$username'
+           				 'username' => '$username',
+                   'password' => '$password'
        				 )
-   				 ));
-   if ($tbluser)
+   				 );
+   if ($tbluser != false)
    {
     if($password==$tbluser->password)
     {
-     $this->_registerSession($tbluser);
-     $this->response->redirect('home');
-     }
+     $this->session->set("user_name",$tbluser->username);
+     $this->response->redirect('index');
+    }
    }
+   else {
    echo "Username atau password salah";
-   return $this->dispatcher->forward(array("action" => "index"));
+   return $this->dispatcher->forward(array("action" => "login"));}
   }
  }
   
  public function logoutAction()
  {
   $this->session->destroy();
-  echo "Session sudah di destroy";
+   $this->response->redirect('index');
  }
 }
 

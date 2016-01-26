@@ -19,14 +19,11 @@ class DataUserController extends ControllerBase
      */
     public function searchAction()
     {
-        //$this->view->disable();
-       // $this->response->setContentType('application/json');
-        /*tmbh ispost*/
-        $nama = $this->request->getPost("email");
+        $nama = $this->request->getPost("username");
         If($nama<>""){
             $data = DataUser::find( array(
         array(
-            "email" => $nama
+            "username" => $nama
 
         )
         )); 
@@ -35,12 +32,7 @@ class DataUserController extends ControllerBase
         $data = DataUser::find();
         }
        
-        //echo $data->username;
-        //echo $data->password;
-        #$echo $data->no_tlp;
-        //echo json_encode($data);
-        #print_r($data)
-         $this->view->item = $data;
+          $this->view->item = $data;
         }
 
     /**
@@ -63,7 +55,7 @@ class DataUserController extends ControllerBase
 
             $data_user = DataUser::findFirst(array(
             array(
-            "email" => $_id
+            "username" => $_id
             )
             ));
             if (!$data_user) {
@@ -139,12 +131,12 @@ class DataUserController extends ControllerBase
             ));
         }
 
-        $_id = $this->request->getPost("email");
+        $_id = $this->request->getPost("username");
 
 
           $data_user = DataUser::findFirst(array(
         array(
-            "email" => $_id
+            "username" => $_id
 
         )
         ));
@@ -195,7 +187,7 @@ class DataUserController extends ControllerBase
       
         $data_user = DataUser::findFirst(array(
         array(
-            "email" => $_id
+            "username" => $_id
 
         )
         ));

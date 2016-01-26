@@ -19,9 +19,6 @@ class DataKendaraanController extends ControllerBase
      */
     public function searchAction()
     {
-        //$this->view->disable();
-       // $this->response->setContentType('application/json');
-        /*tmbh ispost*/
         $nama = $this->request->getPost("plat_nomor");
         If($nama<>""){
             $data = DataKendaraan::find( array(
@@ -34,12 +31,6 @@ class DataKendaraanController extends ControllerBase
         else {
         $data = DataKendaraan::find();
         }
-       
-        //echo $data->jenis_kendaraan;
-        //echo $data->nomor_stnk;
-        #$echo $data->no_tlp;
-        //echo json_encode($data);
-        #print_r($data)
          $this->view->item = $data;
         }
 

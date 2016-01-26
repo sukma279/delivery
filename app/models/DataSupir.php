@@ -8,7 +8,7 @@ class DataSupir extends Collection
 
     public function getSource()
     {
-        return 'data_supir';
+        return 'users';
     }
    
 

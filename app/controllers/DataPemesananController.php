@@ -19,9 +19,6 @@ class DataPemesananController extends ControllerBase
      */
     public function searchAction()
     {
-        //$this->view->disable();
-       // $this->response->setContentType('application/json');
-        /*tmbh ispost*/
         $nama = $this->request->getPost("nama_pemesan");
         If($nama<>""){
             $data = DataPemesanan::find( array(
@@ -35,11 +32,6 @@ class DataPemesananController extends ControllerBase
         $data = DataPemesanan::find();
         }
        
-        //echo $data->nama_pemesan;
-        //echo $data->nama_daerah;
-        #$echo $data->total_ongkir;
-        //echo json_encode($data);
-        #print_r($data)
          $this->view->item = $data;
         }
 
@@ -48,6 +40,10 @@ class DataPemesananController extends ControllerBase
      */
     public function newAction()
     {
+             $data = DataOngkir::find();
+             $this->view->item = $data;
+             $datas = DataSupir::find();
+             $this->view->items = $datas;
 
     }
 
@@ -56,7 +52,7 @@ class DataPemesananController extends ControllerBase
      *
      * @param string $_id
      */
-    public function editAction($_id)
+    public function viewAction($_id)
     {
 
         if (!$this->request->isPost()) {
@@ -80,9 +76,17 @@ class DataPemesananController extends ControllerBase
             //$this->tag->setDefault("_id", $data_pemesanan->_id);
             $this->tag->setDefault("kode_pemesanan", $data_pemesanan->kode_pemesanan);
             $this->tag->setDefault("nama_pemesan", $data_pemesanan->nama_pemesan);
+            $this->tag->setDefault("alamat", $data_pemesanan->alamat);
+            $this->tag->setDefault("no_telp", $data_pemesanan->no_telp);
+            $this->tag->setDefault("nama_penerima", $data_pemesanan->nama_penerima);
+            $this->tag->setDefault("alamat_penerima", $data_pemesanan->alamat_penerima);
+            $this->tag->setDefault("no_telppenerima", $data_pemesanan->no_telppenerima);
             $this->tag->setDefault("nama_daerah", $data_pemesanan->nama_daerah);
+            $this->tag->setDefault("tanggal_kirim", $data_pemesanan->tanggal_kirim);
+            $this->tag->setDefault("tanggal_terima", $data_pemesanan->tanggal_terima);
             $this->tag->setDefault("berat_barang", $data_pemesanan->berat_barang);
             $this->tag->setDefault("total_ongkir", $data_pemesanan->total_ongkir);
+            $this->tag->setDefault("nama_supir", $data_pemesanan->nama_supir);
             
         }
     }
@@ -104,9 +108,17 @@ class DataPemesananController extends ControllerBase
 
         $data_pemesanan->kode_pemesanan = $this->request->getPost("kode_pemesanan");
         $data_pemesanan->nama_pemesan = $this->request->getPost("nama_pemesan");
+        $data_pemesanan->alamat = $this->request->getPost("alamat");
+        $data_pemesanan->no_telp = $this->request->getPost("no_telp");
+        $data_pemesanan->nama_penerima = $this->request->getPost("nama_penerima");
+        $data_pemesanan->alamat_penerima = $this->request->getPost("alamat_penerima");
+        $data_pemesanan->no_telppenerima = $this->request->getPost("no_telppenerima");
         $data_pemesanan->nama_daerah = $this->request->getPost("nama_daerah");
+        $data_pemesanan->tanggal_kirim = $this->request->getPost("tanggal_kirim");
+        $data_pemesanan->tanggal_terima = $this->request->getPost("tanggal_terima");
         $data_pemesanan->berat_barang = $this->request->getPost("berat_barang");
         $data_pemesanan->total_ongkir = $this->request->getPost("total_ongkir");
+        $data_pemesanan->nama_supir = $this->request->getPost("nama_supir");
         
 
         if (!$data_pemesanan->save()) {
@@ -163,9 +175,17 @@ class DataPemesananController extends ControllerBase
 
         $data_pemesanan->kode_pemesanan = $this->request->getPost("kode_pemesanan");
         $data_pemesanan->nama_pemesan = $this->request->getPost("nama_pemesan");
+        $data_pemesanan->alamat = $this->request->getPost("alamat");
+        $data_pemesanan->no_telp = $this->request->getPost("no_telp");
+        $data_pemesanan->nama_penerima = $this->request->getPost("nama_penerima");
+        $data_pemesanan->alamat_penerima = $this->request->getPost("alamat_penerima");
+        $data_pemesanan->no_telppenerima = $this->request->getPost("no_telppenerima");
         $data_pemesanan->nama_daerah = $this->request->getPost("nama_daerah");
+        $data_pemesanan->tanggal_kirim = $this->request->getPost("tanggal_kirim");
+        $data_pemesanan->tanggal_terima = $this->request->getPost("tanggal_terima");
         $data_pemesanan->berat_barang = $this->request->getPost("berat_barang");
         $data_pemesanan->total_ongkir = $this->request->getPost("total_ongkir");
+        $data_pemesanan->nama_supir = $this->request->getPost("nama_supir");
         
 
         if (!$data_pemesanan->save()) {
@@ -232,6 +252,13 @@ class DataPemesananController extends ControllerBase
             "controller" => "data_pemesanan",
             "action" => "index"
         ));
+    }
+
+    public function createpdfAction()
+    {
+        $getdata=DataPemesanan::find();
+        $this->views->data_pemesanan=$getdata;
+ 
     }
 
 }

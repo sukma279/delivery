@@ -1,17 +1,10 @@
 
 <?php echo $this->tag->form("data_kendaraan/create") ?>
 
-<table width="100%">
-    <tr>
-        <td align="left"><?php echo $this->tag->linkTo(array("data_kendaraan", "Go Back")) ?></td>
-        <td align="right"><?php echo $this->tag->submitButton("Save") ?></td>
-    </tr>
-</table>
-
 <?php echo $this->getContent(); ?>
 
 <div align="center">
-    <h1>Create data_kendaraan</h1>
+    <h1>Create Kendaraan</h1>
 </div>
 
 <table>
@@ -25,7 +18,7 @@
     </tr>
     <tr>
         <td align="right">
-            <label for="jenis_kendaraan">jenis_kendaraan</label>
+            <label for="jenis_kendaraan">Jenis Kendaraan</label>
         </td>
         <td align="left">
             <?php echo $this->tag->textField(array("jenis_kendaraan", "size" => 30)) ?>
@@ -33,7 +26,7 @@
     </tr>
     <tr>
         <td align="right">
-            <label for="nomor_stnk">nomor_stnk</label>
+            <label for="nomor_stnk">Nomor STNK</label>
         </td>
         <td align="left">
             <?php echo $this->tag->textField(array("nomor_stnk", "size" => 30)) ?>
@@ -41,7 +34,7 @@
     </tr>
     <tr>
         <td align="right">
-            <label for="kapasitas">kapasitas</label>
+            <label for="kapasitas">Kapasitas</label>
         </td>
         <td align="left">
             <?php echo $this->tag->textField(array("kapasitas", "size" => 30)) ?>

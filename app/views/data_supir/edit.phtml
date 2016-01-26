@@ -1,0 +1,82 @@
+
+<?php echo $this->getContent(); ?>
+
+<?php echo $this->tag->form("data_supir/save") ?>
+
+<div align="center">
+    <h1>Edit Supir</h1>
+</div>
+
+<table>
+    <tr>
+        <td align="right">
+            <label for="kode_supir">Kode Supir</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("kode_supir", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="nama_supir">Nama Supir</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("nama_supir", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="nomor_sim">Nomor SIM</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("nomor_sim", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="alamat">Alamat</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("alamat", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="no_tlp">Nomor Telepon</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("no_tlp", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="jenis_kendaraan">Jenis Kendaraan</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("jenis_kendaraan", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="name">Username</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("name", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="password">Password</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("password", "size" => 30)) ?>
+        </td>
+    </tr>
+    
+    <tr>
+        <td><?php echo $this->tag->hiddenField("_id") ?></td>
+        <td><?php echo $this->tag->submitButton("Save") ?></td>
+    </tr>
+</table>
+
+</form>

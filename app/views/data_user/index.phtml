@@ -1,0 +1,28 @@
+
+<?php echo $this->getContent() ?>
+
+<?php echo $this->tag->form(array("data_user/search", "autocomplete" => "off")) ?>
+
+<div align="center">
+    <h1>Search User</h1>
+</div>
+
+<table>
+    
+    <tr>
+        <td align="right">
+            <label for="username">Username</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("username", "size" => 30)) ?>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td></td>
+        <td><?php echo $this->tag->submitButton("Search") ?></td>
+    </tr>
+</table>
+
+</form>

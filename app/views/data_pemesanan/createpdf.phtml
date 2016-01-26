@@ -1,0 +1,69 @@
+<?php
+class PDF extends FPDF
+{
+ 
+//Page footer
+function Footer()
+{
+    //Position at 1.5 cm from bottom
+    $this->SetY(-1);
+    //Arial italic 8
+    $this->SetFont('helvetica','I',8);
+    //Page number
+    $this->Cell(0,0.1,'Page '.$this->PageNo().'/{nb}',0,0,'C');
+}
+}
+//Instanciation of inherited class
+$pdf=new PDF('P','cm','A4');
+$pdf->SetMargins(0.5,1,0.5,1);
+$pdf->AliasNbPages();
+$pdf->AddPage();
+ 
+$sekarang=date("Y-m-d H:i:s");
+$pdf->SetFont('helvetica','B',10);
+$pdf->SetTextColor(0, 94, 105);
+ 
+ 
+    $pdf->Cell(19,0.5,"Laporan Order",0,0,'C');
+    $pdf->Ln();
+     
+    $pdf->SetFont('helvetica','',8);                             
+    $pdf->SetTextColor(0, 0, 0);
+    $pdf->SetFillColor(240, 243, 244);
+    $pdf->SetDrawColor(203, 207, 210);
+     
+     
+    $pdf->Cell(4.5 , 0.5, '', 0, 'L', 'C',0);    
+    $pdf->Cell(0.7 , 0.5, 'No', 1, 'L', 'C',1);
+    $pdf->Cell(1.5 , 0.5,'Kode' , 1, 'LR', 'C',1);
+    $pdf->Cell(3 , 0.5,'Nama' , 1, 'L', 'C',1);
+    $pdf->Cell(4 , 0.5,'Alamat' , 1, 'L', 'C',1);
+    $pdf->Cell(1 , 0.5,'Kabupaten' , 1, 'L', 'C',1);
+    $pdf->Cell(1 , 0.5,'Tanggal Kirim' , 1, 'L', 'C',1);
+    $pdf->Cell(1 , 0.5,'Tanggal Terima' , 1, 'L', 'C',1);
+    $pdf->Cell(1 , 0.5,'Berat Barang' , 1, 'L', 'C',1);
+    $pdf->Cell(1 , 0.5,'Total Ongkir' , 1, 'L', 'C',1);
+     
+    $no=1;
+    foreach($datas as $data) {
+        $pdf->SetFont('helvetica','',7);                             
+        $pdf->SetFillColor(255, 255, 255);
+        $pdf->SetTextColor(0, 0, 0);
+        $pdf->Ln();
+        $pdf->Cell(4.5 , 0.5, '', 0, 'L', 'C',0);    
+        $pdf->Cell(0.7 , 0.4, $no, 1, 'L', 'C',1);
+        $pdf->Cell(1.5 , 0.4,$data->kode_pemesanan , 1, 'LR', 'C',1);
+        $pdf->Cell(3 , 0.4,$data->nama_pemesan , 1, 'L', 'L',1);
+        $pdf->Cell(4 , 0.4,$data->alamat , 1, 'L', 'L',1);
+        $pdf->Cell(1 , 0.4,$data->nama_daerah, 1, 'L', 'L',1);
+        $pdf->Cell(1 , 0.4,$data->tanggal_kirim, 1, 'L', 'L',1);
+        $pdf->Cell(1 , 0.4,$data->tanggal_terima, 1, 'L', 'L',1);
+        $pdf->Cell(1 , 0.4,$data->berat_barang, 1, 'L', 'L',1);
+        $pdf->Cell(1 , 0.4,$data->total_ongkir, 1, 'L', 'L',1); 
+         
+         
+        $no++;
+    } 
+     
+$pdf->Output("Laporan Order.pdf","I");
+?> 

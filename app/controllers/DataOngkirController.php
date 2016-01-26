@@ -19,9 +19,7 @@ class DataOngkirController extends ControllerBase
      */
     public function searchAction()
     {
-        //$this->view->disable();
-       // $this->response->setContentType('application/json');
-        /*tmbh ispost*/
+        
         $nama = $this->request->getPost("nama_daerah");
         If($nama<>""){
             $data = DataOngkir::find( array(
@@ -35,12 +33,7 @@ class DataOngkirController extends ControllerBase
         $data = DataOngkir::find();
         }
        
-        //echo $data->nama_daerah;
-        //echo $data->ongkir;
-        #$echo $data->no_tlp;
-        //echo json_encode($data);
-        #print_r($data)
-         $this->view->item = $data;
+        $this->view->item = $data;
         }
 
     /**
@@ -67,7 +60,7 @@ class DataOngkirController extends ControllerBase
             )
             ));
             if (!$data_ongkir) {
-                $this->flash->error("data_ongkir was not found");
+                $this->flash->error("kode_daerah was not found");
 
                 return $this->dispatcher->forward(array(
                     "controller" => "data_ongkir",
@@ -103,7 +96,7 @@ class DataOngkirController extends ControllerBase
         $data_ongkir->kode_daerah = $this->request->getPost("kode_daerah");
         $data_ongkir->nama_daerah = $this->request->getPost("nama_daerah");
         $data_ongkir->ongkir = $this->request->getPost("ongkir");
-                
+
 
         if (!$data_ongkir->save()) {
             foreach ($data_ongkir->getMessages() as $message) {
@@ -160,7 +153,8 @@ class DataOngkirController extends ControllerBase
         $data_ongkir->kode_daerah = $this->request->getPost("kode_daerah");
         $data_ongkir->nama_daerah = $this->request->getPost("nama_daerah");
         $data_ongkir->ongkir = $this->request->getPost("ongkir");
-       
+        
+
         if (!$data_ongkir->save()) {
 
             foreach ($data_ongkir->getMessages() as $message) {
@@ -209,7 +203,7 @@ class DataOngkirController extends ControllerBase
 
         if (!$data_ongkir->delete()) {
 
-            foreach ($data_ongkir->getMessages() as $message) {
+            foreach ($data_customer->getMessages() as $message) {
                 $this->flash->error($message);
             }
 

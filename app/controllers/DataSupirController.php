@@ -19,9 +19,6 @@ class DataSupirController extends ControllerBase
      */
     public function searchAction()
     {
-        //$this->view->disable();
-       // $this->response->setContentType('application/json');
-        /*tmbh ispost*/
         $nama = $this->request->getPost("nama_supir");
         If($nama<>""){
             $data = DataSupir::find( array(
@@ -35,12 +32,7 @@ class DataSupirController extends ControllerBase
         $data = DataSupir::find();
         }
        
-        //echo $data->nama_supir;
-        //echo $data->alamat;
-        #$echo $data->no_tlp;
-        //echo json_encode($data);
-        #print_r($data)
-         $this->view->item = $data;
+          $this->view->item = $data;
         }
 
     /**
@@ -84,6 +76,8 @@ class DataSupirController extends ControllerBase
             $this->tag->setDefault("alamat", $data_supir->alamat);
             $this->tag->setDefault("no_tlp", $data_supir->no_tlp);
             $this->tag->setDefault("jenis_kendaraan", $data_supir->jenis_kendaraan);
+            $this->tag->setDefault("name", $data_supir->name);
+            $this->tag->setDefault("password", $data_supir->password);
             
         }
     }
@@ -109,6 +103,8 @@ class DataSupirController extends ControllerBase
         $data_supir->alamat = $this->request->getPost("alamat");
         $data_supir->no_tlp = $this->request->getPost("no_tlp");
         $data_supir->jenis_kendaraan = $this->request->getPost("jenis_kendaraan");
+        $data_supir->name = $this->request->getPost("name");
+        $data_supir->password = $this->request->getPost("password");
         
 
         if (!$data_supir->save()) {
@@ -169,6 +165,8 @@ class DataSupirController extends ControllerBase
         $data_supir->alamat = $this->request->getPost("alamat");
         $data_supir->no_tlp = $this->request->getPost("no_tlp");
         $data_supir->jenis_kendaraan = $this->request->getPost("jenis_kendaraan");
+        $data_supir->name = $this->request->getPost("name");
+        $data_supir->password = $this->request->getPost("password");
         
 
         if (!$data_supir->save()) {
