@@ -1,0 +1,29 @@
+<?php
+class PDF extends FPDF
+{
+ 
+//Page footer
+function Footer()
+{
+    //Position at 1.5 cm from bottom
+    $this->SetY(-1);
+    //Arial italic 8
+    $this->SetFont('helvetica','I',8);
+    //Page number
+    $this->Cell(0,0.1,'Page '.$this->PageNo().'/{nb}',0,0,'C');
+}
+}
+//Instanciation of inherited class
+$pdf=new PDF('P','cm','A4');
+$pdf->SetMargins(0.5,1,0.5,1);
+$pdf->AliasNbPages();
+$pdf->AddPage();
+ 
+$sekarang=date("Y-m-d H:i:s");
+$pdf->SetFont('helvetica','B',10);
+$pdf->SetTextColor(0, 94, 105);
+$pdf->Cell(2.3);
+$pdf->Cell(12,0.2,'HELLO PHALCON ...FLYING WITH US....',0,0,'L');
+  
+$pdf->Output("Test.pdf","I");
+?>

@@ -73,6 +73,7 @@ class DataUserController extends ControllerBase
             $this->tag->setDefault("email", $data_user->email);
             $this->tag->setDefault("username", $data_user->username);
             $this->tag->setDefault("password", $data_user->password);
+            $this->tag->setDefault("level_user", $data_user->level_user);
                         
         }
     }
@@ -95,6 +96,7 @@ class DataUserController extends ControllerBase
         $data_user->email = $this->request->getPost("email");
         $data_user->username = $this->request->getPost("username");
         $data_user->password = $this->request->getPost("password");
+        $data_user->level_user = $this->request->getPost("level_user");
                 
 
         if (!$data_user->save()) {
@@ -152,6 +154,7 @@ class DataUserController extends ControllerBase
         $data_user->email = $this->request->getPost("email");
         $data_user->username = $this->request->getPost("username");
         $data_user->password = $this->request->getPost("password");
+        $data_user->level_user = $this->request->getPost("level_user");
                 
 
         if (!$data_user->save()) {

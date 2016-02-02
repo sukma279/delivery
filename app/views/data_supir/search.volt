@@ -11,6 +11,8 @@
             <th>Nomor SIM</th>
             <th>Alamat</th>
             <th>Nomor Telepon</th>
+            <th>Longitude</th>
+            <th>Latitude</th>
             <th>Jenis Kendaraan</th>
             <th>Username</th>
             <th>Password</th>
@@ -25,6 +27,8 @@
             <td><?php echo $data->nomor_sim ?></td>
             <td><?php echo $data->alamat ?></td>
             <td><?php echo $data->no_tlp ?></td>
+            <td><?php echo $data->longitude ?></td>
+            <td><?php echo $data->latitude ?></td>
             <td><?php echo $data->jenis_kendaraan ?></td>
             <td><?php echo $data->name ?></td>
             <td><?php echo $data->password ?></td>

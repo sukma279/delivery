@@ -127,6 +127,61 @@
 		                 {% if selectmenu == "logout" %}class="active"{% endif %}>
 							{{ link_to('/login/logout','<span class="fa-stack fa-lg pull-left"><i class="fa fa-sign-out fa-stack-1x "></i></span>Logout') }}
 		                </li  {% endif %}>
+		                <!--form user -->
+		                <li {% if session.get('user_name')=="user" %} 
+		                {% if selectmenu == "data_ongkir" %}class="active"{% endif %}>
+		                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-credit-card fa-stack-1x "></i></span>Ongkir</a>
+		                       <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+		                        <li {% if selectmenu == "index" %}class="active"{% endif %}>
+								{{ link_to('data_ongkir/index','<span class="fa-stack fa-lg pull-left"><i class="fa fa-search fa-stack-1x "></i></span>Search') }}
+								</li>
+								<li {% if selectmenu == "new" %}class="active"{% endif %}>
+								{{ link_to('data_ongkir/new','<span class="fa-stack fa-lg pull-left"><i class="fa fa-plus fa-stack-1x "></i></span>New') }}
+								</li>
+		                       </ul>
+		                </li {% endif %}>
+		                <li {% if session.get('user_name')=="user" %}
+		                {% if selectmenu == "data_kendaraan" %}class="active"{% endif %}>
+		                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-motorcycle fa-stack-1x "></i></span>Kendaraan</a>
+		                       <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+		                        <li {% if selectmenu == "index" %}class="active"{% endif %}>
+								{{ link_to('data_kendaraan/index','<span class="fa-stack fa-lg pull-left"><i class="fa fa-search fa-stack-1x "></i></span>Search') }}
+								</li>
+								<li {% if selectmenu == "new" %}class="active"{% endif %}>
+								{{ link_to('data_kendaraan/new','<span class="fa-stack fa-lg pull-left"><i class="fa fa-plus fa-stack-1x "></i></span>New') }}
+								</li>
+		                       </ul>
+		                </li {% endif %}>
+		                <li {% if session.get('user_name')=="user" %}
+		                {% if selectmenu == "data_pemesanan" %}class="active"{% endif %}>
+		                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-envelope-o fa-stack-1x "></i></span>Pemesanan</a>
+		                       <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+		                        <li {% if selectmenu == "index" %}class="active"{% endif %}>
+								{{ link_to('data_pemesanan/index','<span class="fa-stack fa-lg pull-left"><i class="fa fa-search fa-stack-1x "></i></span>Search') }}
+								</li>
+								<li {% if selectmenu == "new" %}class="active"{% endif %}>
+								{{ link_to('data_pemesanan/new','<span class="fa-stack fa-lg pull-left"><i class="fa fa-plus fa-stack-1x "></i></span>New') }}
+								</li>
+		                       </ul>
+		                </li {% endif %}>
+		                <li {% if session.get('user_name')=="user" %}
+		                {% if selectmenu == "data_supir" %}class="active"{% endif %}>
+		                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-male fa-stack-1x "></i></span>Supir</a>
+		                       <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+		                        <li {% if selectmenu == "index" %}class="active"{% endif %}>
+								{{ link_to('data_supir/index','<span class="fa-stack fa-lg pull-left"><i class="fa fa-search fa-stack-1x "></i></span>Search') }}
+								</li>
+								<li {% if selectmenu == "new" %}class="active"{% endif %}>
+								{{ link_to('data_supir/new','<span class="fa-stack fa-lg pull-left"><i class="fa fa-plus fa-stack-1x "></i></span>New') }}
+								</li>
+		                       </ul>
+		                </li {% endif %}>
+		                <li {% if session.get('user_name')=="user" %}
+		                 {% if selectmenu == "logout" %}class="active"{% endif %}>
+							{{ link_to('/login/logout','<span class="fa-stack fa-lg pull-left"><i class="fa fa-sign-out fa-stack-1x "></i></span>Logout') }}
+		                </li  {% endif %}>
+
+
 		            </ul>
 		        </div><!-- /#sidebar-wrapper -->
 		        <!-- Page Content -->

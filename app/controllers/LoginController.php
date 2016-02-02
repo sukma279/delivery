@@ -24,7 +24,6 @@ class LoginController extends \Phalcon\Mvc\Controller
              $username = $this->request->getPost('username');
             $password = $this->request->getPost('password');
             $tbluser = User::findFirst(
-            	
        				 array(
            				 'username' => '$username',
                    'password' => '$password'

@@ -21,8 +21,6 @@ document.getElementById("total").value=total;
 
 return false;
 }
-
-
 }
 </script>
 
@@ -67,8 +65,13 @@ return false;
   </div>
   <div class="form-group col-sm-12">
     <label for="tanggal_kirim" class="col-sm-2 control-label">Tanggal Kirim</label>
-      <?php echo $this->tag->textField(array("tanggal_kirim", "size" => 30)) ?>
+    <div class="input-group">
+    <div class="input-group-addon">
+        <i class="fa fa-calendar"></i>
     </div>
+    <input type="text" class="form-control pull-right" id="tanggal_kirim">
+    </div>
+  </div>
   <div class="form-group col-sm-12">
     <label for="tanggal_terima" class="col-sm-2 control-label">Tanggal Terima</label>
       <?php echo $this->tag->textField(array("tanggal_terima", "size" => 30)) ?>

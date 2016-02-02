@@ -45,7 +45,7 @@ $pdf->SetTextColor(0, 94, 105);
     $pdf->Cell(1 , 0.5,'Total Ongkir' , 1, 'L', 'C',1);
      
     $no=1;
-    foreach($datas as $data) {
+    foreach($data_pemesanan as $data) {
         $pdf->SetFont('helvetica','',7);                             
         $pdf->SetFillColor(255, 255, 255);
         $pdf->SetTextColor(0, 0, 0);

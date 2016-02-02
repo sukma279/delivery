@@ -127,6 +127,61 @@
 		                 <?php if ($selectmenu == 'logout') { ?>class="active"<?php } ?>>
 							<?php echo $this->tag->linkTo(array('/login/logout', '<span class="fa-stack fa-lg pull-left"><i class="fa fa-sign-out fa-stack-1x "></i></span>Logout')); ?>
 		                </li  <?php } ?>>
+		                <!--form user -->
+		                <li <?php if ($this->session->get('user_name') == 'user') { ?> 
+		                <?php if ($selectmenu == 'data_ongkir') { ?>class="active"<?php } ?>>
+		                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-credit-card fa-stack-1x "></i></span>Ongkir</a>
+		                       <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+		                        <li <?php if ($selectmenu == 'index') { ?>class="active"<?php } ?>>
+								<?php echo $this->tag->linkTo(array('data_ongkir/index', '<span class="fa-stack fa-lg pull-left"><i class="fa fa-search fa-stack-1x "></i></span>Search')); ?>
+								</li>
+								<li <?php if ($selectmenu == 'new') { ?>class="active"<?php } ?>>
+								<?php echo $this->tag->linkTo(array('data_ongkir/new', '<span class="fa-stack fa-lg pull-left"><i class="fa fa-plus fa-stack-1x "></i></span>New')); ?>
+								</li>
+		                       </ul>
+		                </li <?php } ?>>
+		                <li <?php if ($this->session->get('user_name') == 'user') { ?>
+		                <?php if ($selectmenu == 'data_kendaraan') { ?>class="active"<?php } ?>>
+		                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-motorcycle fa-stack-1x "></i></span>Kendaraan</a>
+		                       <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+		                        <li <?php if ($selectmenu == 'index') { ?>class="active"<?php } ?>>
+								<?php echo $this->tag->linkTo(array('data_kendaraan/index', '<span class="fa-stack fa-lg pull-left"><i class="fa fa-search fa-stack-1x "></i></span>Search')); ?>
+								</li>
+								<li <?php if ($selectmenu == 'new') { ?>class="active"<?php } ?>>
+								<?php echo $this->tag->linkTo(array('data_kendaraan/new', '<span class="fa-stack fa-lg pull-left"><i class="fa fa-plus fa-stack-1x "></i></span>New')); ?>
+								</li>
+		                       </ul>
+		                </li <?php } ?>>
+		                <li <?php if ($this->session->get('user_name') == 'user') { ?>
+		                <?php if ($selectmenu == 'data_pemesanan') { ?>class="active"<?php } ?>>
+		                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-envelope-o fa-stack-1x "></i></span>Pemesanan</a>
+		                       <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+		                        <li <?php if ($selectmenu == 'index') { ?>class="active"<?php } ?>>
+								<?php echo $this->tag->linkTo(array('data_pemesanan/index', '<span class="fa-stack fa-lg pull-left"><i class="fa fa-search fa-stack-1x "></i></span>Search')); ?>
+								</li>
+								<li <?php if ($selectmenu == 'new') { ?>class="active"<?php } ?>>
+								<?php echo $this->tag->linkTo(array('data_pemesanan/new', '<span class="fa-stack fa-lg pull-left"><i class="fa fa-plus fa-stack-1x "></i></span>New')); ?>
+								</li>
+		                       </ul>
+		                </li <?php } ?>>
+		                <li <?php if ($this->session->get('user_name') == 'user') { ?>
+		                <?php if ($selectmenu == 'data_supir') { ?>class="active"<?php } ?>>
+		                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-male fa-stack-1x "></i></span>Supir</a>
+		                       <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+		                        <li <?php if ($selectmenu == 'index') { ?>class="active"<?php } ?>>
+								<?php echo $this->tag->linkTo(array('data_supir/index', '<span class="fa-stack fa-lg pull-left"><i class="fa fa-search fa-stack-1x "></i></span>Search')); ?>
+								</li>
+								<li <?php if ($selectmenu == 'new') { ?>class="active"<?php } ?>>
+								<?php echo $this->tag->linkTo(array('data_supir/new', '<span class="fa-stack fa-lg pull-left"><i class="fa fa-plus fa-stack-1x "></i></span>New')); ?>
+								</li>
+		                       </ul>
+		                </li <?php } ?>>
+		                <li <?php if ($this->session->get('user_name') == 'user') { ?>
+		                 <?php if ($selectmenu == 'logout') { ?>class="active"<?php } ?>>
+							<?php echo $this->tag->linkTo(array('/login/logout', '<span class="fa-stack fa-lg pull-left"><i class="fa fa-sign-out fa-stack-1x "></i></span>Logout')); ?>
+		                </li  <?php } ?>>
+
+
 		            </ul>
 		        </div><!-- /#sidebar-wrapper -->
 		        <!-- Page Content -->

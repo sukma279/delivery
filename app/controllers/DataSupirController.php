@@ -40,7 +40,8 @@ class DataSupirController extends ControllerBase
      */
     public function newAction()
     {
-
+            $data = DataKendaraan::find();
+            $this->view->item = $data;
     }
 
     /**
@@ -75,6 +76,8 @@ class DataSupirController extends ControllerBase
             $this->tag->setDefault("nomor_sim", $data_supir->nomor_sim);
             $this->tag->setDefault("alamat", $data_supir->alamat);
             $this->tag->setDefault("no_tlp", $data_supir->no_tlp);
+            $this->tag->setDefault("longitude", $data_supir->longitude);
+            $this->tag->setDefault("latitude", $data_supir->latitude);
             $this->tag->setDefault("jenis_kendaraan", $data_supir->jenis_kendaraan);
             $this->tag->setDefault("name", $data_supir->name);
             $this->tag->setDefault("password", $data_supir->password);
@@ -102,6 +105,8 @@ class DataSupirController extends ControllerBase
         $data_supir->nomor_sim = $this->request->getPost("nomor_sim");
         $data_supir->alamat = $this->request->getPost("alamat");
         $data_supir->no_tlp = $this->request->getPost("no_tlp");
+        $data_supir->longitude = $this->request->getPost("longitude");
+        $data_supir->latitude = $this->request->getPost("latitude");
         $data_supir->jenis_kendaraan = $this->request->getPost("jenis_kendaraan");
         $data_supir->name = $this->request->getPost("name");
         $data_supir->password = $this->request->getPost("password");
@@ -164,6 +169,8 @@ class DataSupirController extends ControllerBase
         $data_supir->nomor_sim = $this->request->getPost("nomor_sim");
         $data_supir->alamat = $this->request->getPost("alamat");
         $data_supir->no_tlp = $this->request->getPost("no_tlp");
+        $data_supir->longitude = $this->request->getPost("longitude");
+        $data_supir->latitude = $this->request->getPost("latitude");
         $data_supir->jenis_kendaraan = $this->request->getPost("jenis_kendaraan");
         $data_supir->name = $this->request->getPost("name");
         $data_supir->password = $this->request->getPost("password");
