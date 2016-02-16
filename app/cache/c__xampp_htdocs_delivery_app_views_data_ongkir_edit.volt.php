@@ -22,10 +22,10 @@
     <?php echo $this->tag->textField(array("ongkir", "size" => 30)) ?>
   </div>
   
-  <div class="form-group"> 
-    <div class="col-sm-offset-2 col-sm-10">
-        <?php echo $this->tag->hiddenField("_id") ?>
-        <?php echo $this->tag->submitButton(array('Save', 'class' => 'btn btn-primary')); ?>
-    </div>
+  <div class="form-group col-sm-offset-2 col-sm-10"> 
+    
+        <td><?php echo $this->tag->hiddenField("_id") ?></td>
+        <td><?php echo $this->tag->submitButton("Save") ?></td>
+    
   </div>
 </form>

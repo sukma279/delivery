@@ -1,29 +1,31 @@
-<html>
-    <head>
-       <title>Login</title>
-    </head>
-    <body>
-  <fieldset>
-   <legend>Login</legend>
-    <?php echo $this->tag->form(array('login/proseslogin', 'role' => 'form')); ?>
-    <table>
-     <tr>
-      <td> Username </td>
-      <td> <input type="text" name="username" class="form-control" placeholder="User ID"/> </td>
-     </tr>
-     </tr>
-     <tr>
-      <td> Password </td>
-      <td><input type="password" name="password" placeholder="Password"/></td>
-     </tr>
-     <tr>
-      <td colspan=2><button type="submit" class="btn bg-olive btn-block">Log in</button>  </td>
-     </tr>
-     <tr>
-      <td colspan=2><?php echo $this->getContent(); ?></td>
-     </tr>
-    </table>
-     </form>
-  </fieldset>
-    </body>
-</html>
+<?php echo $this->tag->tagHtml('div', array('class' => 'page-header')); ?>
+    <?php echo $this->tag->tagHtml('h1'); ?> Login<?php echo $this->tag->tagHtmlClose('h1'); ?>
+<?php echo $this->tag->tagHtmlClose('div'); ?>
+
+      <div class="container">
+    <div class="row">
+        <div class=" col-md-4 login-from">
+            
+            <?php echo $this->tag->form(array('login/proseslogin', 'role' => 'form')); ?>
+            <form action="check-login.php" method="post">
+                <div class="form-group">
+                    <label for="">Username</label>
+                    <input type="text" class="form-control" name="username" placeholder="Username"/>
+                </div>
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" class="form-control" name="password" placeholder="Password" />
+                </div>
+                <div class="text-right">
+                    <button class="btn btn-primary">Login</button>
+                </div>
+                <div class="text-right">
+                    <?php echo $this->getContent(); ?>
+                </div>
+            </form>
+                
+        </div>
+    </div>
+</div> <!-- End container -->
+  
+ 

@@ -1,6 +1,28 @@
+<html>
+<head>
+<script>
+function printPage(id)
+{
+   var html="<html>";
+   html+= document.getElementById(id).innerHTML;
+
+   html+="</html>";
+
+   var printWin = window.open('','','left=0,top=0,width=1,height=1,toolbar=0,scrollbars=0,status  =0');
+   printWin.document.write(html);
+   printWin.document.close();
+   printWin.focus();
+   printWin.print();
+   printWin.close();
+}
+</script>
+</head>
+<body>
+<div id="printableArea">
 <?php echo $this->tag->tagHtml('div', array('class' => 'page-header')); ?>
-    <?php echo $this->tag->tagHtml('h1'); ?> Data Pemesanan<?php echo $this->tag->tagHtmlClose('h1'); ?>
+    <?php echo $this->tag->tagHtml('h1'); ?> Laporan Pengiriman<?php echo $this->tag->tagHtmlClose('h1'); ?>
 <?php echo $this->tag->tagHtmlClose('div'); ?>
+
 
 <div class="bs-example4" data-example-id="contextual-table">
     <table class="table">
@@ -19,7 +41,6 @@
             <th>Berat Barang(kg)</th>
             <th>Total Ongkir</th>
             <th>Nama Supir</th>
-            <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -38,10 +59,21 @@
             <td><?php echo $data->berat_barang ?></td>
             <td><?php echo $data->total_ongkir ?></td>
             <td><?php echo $data->nama_supir ?></td>
-            <td><?php echo $this->tag->linkTo(array("data_pemesanan/view/" . $data->kode_pemesanan, "View")); ?>
+            
         </tr>
     <?php } ?>
       </tbody>
     </table>
-    
    </div>
+   </div>
+   <div class="form-group"> 
+    <div class="col-sm-10">
+       
+        <input type="button" class="btn btn-primary" value="Cetak" onclick="printPage('printableArea');"></input>
+    </div>
+  </div>
+</form>
+
+
+</body>
+</html>

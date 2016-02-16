@@ -1,6 +1,6 @@
-{{ tag_html("div",["class": "page-header"])}}
-    {{ tag_html('h1')}} Edit Ongkir{{ tag_html_close('h1')}}
-{{tag_html_close("div")}}
+<?php echo $this->tag->tagHtml('div', array('class' => 'page-header')); ?>
+    <?php echo $this->tag->tagHtml('h1'); ?> Edit Ongkir<?php echo $this->tag->tagHtmlClose('h1'); ?>
+<?php echo $this->tag->tagHtmlClose('div'); ?>
 
 <?php echo $this->getContent(); ?>
 
@@ -29,7 +29,7 @@
   <div class="form-group"> 
     <div class="col-sm-offset-2 col-sm-10">
         <?php echo $this->tag->hiddenField("_id") ?>
-        {{ submit_button('Save','class':'btn btn-primary') }}
+        <?php echo $this->tag->submitButton(array('Save', 'class' => 'btn btn-primary')); ?>
     </div>
   </div>
 </form>

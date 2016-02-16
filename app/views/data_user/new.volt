@@ -12,10 +12,7 @@
     <label for="username" class="col-sm-2 control-label">Username</label>
     <?php echo $this->tag->textField(array("username", "size" => 30)) ?>
   </div>
-  <div class="form-group col-sm-12">
-    <label for="email" class="col-sm-2 control-label">Email</label>
-      <?php echo $this->tag->textField(array("email", "size" => 30, "type"=>"email")) ?>
-    </div>
+  
   <div class="form-group col-sm-12">
     <label for="password" class="col-sm-2 control-label">Password</label>
     <?php echo $this->tag->textField(array("password", "size" => 30)) ?>

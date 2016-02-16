@@ -25,21 +25,20 @@ class LoginController extends \Phalcon\Mvc\Controller
             $password = $this->request->getPost('password');
             $tbluser = User::findFirst(
        				 array(
-           				 'username' => '$username',
-                   'password' => '$password'
+           				 'username' => '$username'
        				 )
    				 );
-   if ($tbluser != false)
+   if ($tbluser)
    {
     if($password==$tbluser->password)
     {
-     $this->session->set("user_name",$tbluser->username);
+     $this->session->set("level",$tbluser->level_user);
      $this->response->redirect('index');
     }
    }
    else {
    echo "Username atau password salah";
-   return $this->dispatcher->forward(array("action" => "login"));}
+   return $this->dispatcher->forward(array("action" => "index"));}
   }
  }
   

@@ -261,4 +261,30 @@ class DataPemesananController extends ControllerBase
  
     }
 
+    public function reportAction()
+    {
+        $this->persistent->parameters = null;
+    }
+
+    /**
+     * Searches for data_pemesanan
+     */
+    public function printreportAction()
+    {
+        $nama = $this->request->getPost("tanggal_kirim");
+        If($tanggal<>""){
+            $data = DataPemesanan::find( array(
+        array(
+            "tanggal_kirim" => $tanggal
+
+        )
+        )); 
+        }
+        else {
+        $data = DataPemesanan::find();
+        }
+       
+         $this->view->item = $data;
+        }
+
 }

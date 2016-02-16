@@ -2,7 +2,6 @@
     {{ tag_html('h1')}} Data Pemesanan{{ tag_html_close('h1')}}
 {{tag_html_close("div")}}
 
-<?php echo $this->tag->form("data_pemesanan/createpdf") ?>
 <div class="bs-example4" data-example-id="contextual-table">
     <table class="table">
       <thead>
@@ -44,5 +43,5 @@
     <?php } ?>
       </tbody>
     </table>
-    {{ submit_button('Print Laporan','class':'btn btn-primary') }}
+    
    </div>

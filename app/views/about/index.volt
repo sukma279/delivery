@@ -1,6 +1,6 @@
-<div class="page-header">
-    <h1>Welcome!</h1>
-</div>
+{{ tag_html("div",["class": "page-header"])}}
+    {{ tag_html('h1')}} Welcome{{ tag_html_close('h1')}}
+{{tag_html_close("div")}}
 
 <p>You're now flying with Phalcon. Great things are about to happen!</p>
 

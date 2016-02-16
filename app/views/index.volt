@@ -43,7 +43,7 @@
 		            <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
 		            	
 
-		               <!-- <li {% if session.get('user_name')=="admin" %}
+		               <!-- <li {% if session.get('level')=="admin" %}
 		                 {% if selectmenu == "data_customer" %}class="active"{% endif %}>
 		                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-users fa-stack-1x "></i></span>Customer</a>
 		                       <ul class="nav-pills nav-stacked" style="list-style-type:none;">
@@ -56,7 +56,7 @@
 		                       </ul>
 		                </li {% endif %}> -->
 		               
-		                <li {% if session.get('user_name')=="admin" %} 
+		                <li {% if session.get('level')=="admin" %} 
 		                {% if selectmenu == "data_ongkir" %}class="active"{% endif %}>
 		                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-credit-card fa-stack-1x "></i></span>Ongkir</a>
 		                       <ul class="nav-pills nav-stacked" style="list-style-type:none;">
@@ -68,7 +68,7 @@
 								</li>
 		                       </ul>
 		                </li {% endif %}>
-		                <li {% if session.get('user_name')=="admin" %}
+		                <li {% if session.get('level')=="admin" %}
 		                {% if selectmenu == "data_kendaraan" %}class="active"{% endif %}>
 		                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-motorcycle fa-stack-1x "></i></span>Kendaraan</a>
 		                       <ul class="nav-pills nav-stacked" style="list-style-type:none;">
@@ -80,19 +80,7 @@
 								</li>
 		                       </ul>
 		                </li {% endif %}>
-		                <li {% if session.get('user_name')=="admin" %}
-		                {% if selectmenu == "data_pemesanan" %}class="active"{% endif %}>
-		                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-envelope-o fa-stack-1x "></i></span>Pemesanan</a>
-		                       <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-		                        <li {% if selectmenu == "index" %}class="active"{% endif %}>
-								{{ link_to('data_pemesanan/index','<span class="fa-stack fa-lg pull-left"><i class="fa fa-search fa-stack-1x "></i></span>Search') }}
-								</li>
-								<li {% if selectmenu == "new" %}class="active"{% endif %}>
-								{{ link_to('data_pemesanan/new','<span class="fa-stack fa-lg pull-left"><i class="fa fa-plus fa-stack-1x "></i></span>New') }}
-								</li>
-		                       </ul>
-		                </li {% endif %}>
-		                <li {% if session.get('user_name')=="admin" %}
+		                <li {% if session.get('level')=="admin" %}
 		                {% if selectmenu == "data_supir" %}class="active"{% endif %}>
 		                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-male fa-stack-1x "></i></span>Supir</a>
 		                       <ul class="nav-pills nav-stacked" style="list-style-type:none;">
@@ -104,7 +92,22 @@
 								</li>
 		                       </ul>
 		                </li {% endif %}>
-		                <li {% if session.get('user_name')=="admin" %}
+		                <li {% if session.get('level')=="admin" %}
+		                {% if selectmenu == "data_pemesanan" %}class="active"{% endif %}>
+		                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-envelope-o fa-stack-1x "></i></span>Pemesanan</a>
+		                       <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+		                        <li {% if selectmenu == "index" %}class="active"{% endif %}>
+								{{ link_to('data_pemesanan/index','<span class="fa-stack fa-lg pull-left"><i class="fa fa-search fa-stack-1x "></i></span>Search') }}
+								</li>
+								<li {% if selectmenu == "new" %}class="active"{% endif %}>
+								{{ link_to('data_pemesanan/new','<span class="fa-stack fa-lg pull-left"><i class="fa fa-plus fa-stack-1x "></i></span>New') }}
+								</li>
+								<li {% if selectmenu == "report" %}class="active"{% endif %}>
+								{{ link_to('data_pemesanan/report','<span class="fa-stack fa-lg pull-left"><i class="fa fa-book fa-stack-1x "></i></span>Laporan') }}
+								</li>
+		                       </ul>
+		                </li {% endif %}>
+		                <li {% if session.get('level')=="admin" %}
 		                {% if selectmenu == "data_user" %}class="active"{% endif %}>
 		                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-user fa-stack-1x "></i></span>User</a>
 		                       <ul class="nav-pills nav-stacked" style="list-style-type:none;">
@@ -119,67 +122,15 @@
 		            	<li {% if selectmenu == "about" %}class="active"{% endif %}>
 							{{ link_to('about','<span class="fa-stack fa-lg pull-left"><i class="fa fa-home fa-stack-1x "></i></span>About') }}
 		                </li>
-		                <li {% if session.get('user_name')=="" %}
+		                <li {% if session.get('level')=="" %}
 		                 {% if selectmenu == "login" %}class="active"{% endif %}>
 							{{ link_to('login','<span class="fa-stack fa-lg pull-left"><i class="fa fa-sign-in fa-stack-1x "></i></span>Login') }}
 		                </li {% endif %}>
-		                <li {% if session.get('user_name')=="admin" %}
+		                <li {% if session.get('level')=="admin" %}
 		                 {% if selectmenu == "logout" %}class="active"{% endif %}>
 							{{ link_to('/login/logout','<span class="fa-stack fa-lg pull-left"><i class="fa fa-sign-out fa-stack-1x "></i></span>Logout') }}
 		                </li  {% endif %}>
-		                <!--form user -->
-		                <li {% if session.get('user_name')=="user" %} 
-		                {% if selectmenu == "data_ongkir" %}class="active"{% endif %}>
-		                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-credit-card fa-stack-1x "></i></span>Ongkir</a>
-		                       <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-		                        <li {% if selectmenu == "index" %}class="active"{% endif %}>
-								{{ link_to('data_ongkir/index','<span class="fa-stack fa-lg pull-left"><i class="fa fa-search fa-stack-1x "></i></span>Search') }}
-								</li>
-								<li {% if selectmenu == "new" %}class="active"{% endif %}>
-								{{ link_to('data_ongkir/new','<span class="fa-stack fa-lg pull-left"><i class="fa fa-plus fa-stack-1x "></i></span>New') }}
-								</li>
-		                       </ul>
-		                </li {% endif %}>
-		                <li {% if session.get('user_name')=="user" %}
-		                {% if selectmenu == "data_kendaraan" %}class="active"{% endif %}>
-		                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-motorcycle fa-stack-1x "></i></span>Kendaraan</a>
-		                       <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-		                        <li {% if selectmenu == "index" %}class="active"{% endif %}>
-								{{ link_to('data_kendaraan/index','<span class="fa-stack fa-lg pull-left"><i class="fa fa-search fa-stack-1x "></i></span>Search') }}
-								</li>
-								<li {% if selectmenu == "new" %}class="active"{% endif %}>
-								{{ link_to('data_kendaraan/new','<span class="fa-stack fa-lg pull-left"><i class="fa fa-plus fa-stack-1x "></i></span>New') }}
-								</li>
-		                       </ul>
-		                </li {% endif %}>
-		                <li {% if session.get('user_name')=="user" %}
-		                {% if selectmenu == "data_pemesanan" %}class="active"{% endif %}>
-		                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-envelope-o fa-stack-1x "></i></span>Pemesanan</a>
-		                       <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-		                        <li {% if selectmenu == "index" %}class="active"{% endif %}>
-								{{ link_to('data_pemesanan/index','<span class="fa-stack fa-lg pull-left"><i class="fa fa-search fa-stack-1x "></i></span>Search') }}
-								</li>
-								<li {% if selectmenu == "new" %}class="active"{% endif %}>
-								{{ link_to('data_pemesanan/new','<span class="fa-stack fa-lg pull-left"><i class="fa fa-plus fa-stack-1x "></i></span>New') }}
-								</li>
-		                       </ul>
-		                </li {% endif %}>
-		                <li {% if session.get('user_name')=="user" %}
-		                {% if selectmenu == "data_supir" %}class="active"{% endif %}>
-		                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-male fa-stack-1x "></i></span>Supir</a>
-		                       <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-		                        <li {% if selectmenu == "index" %}class="active"{% endif %}>
-								{{ link_to('data_supir/index','<span class="fa-stack fa-lg pull-left"><i class="fa fa-search fa-stack-1x "></i></span>Search') }}
-								</li>
-								<li {% if selectmenu == "new" %}class="active"{% endif %}>
-								{{ link_to('data_supir/new','<span class="fa-stack fa-lg pull-left"><i class="fa fa-plus fa-stack-1x "></i></span>New') }}
-								</li>
-		                       </ul>
-		                </li {% endif %}>
-		                <li {% if session.get('user_name')=="user" %}
-		                 {% if selectmenu == "logout" %}class="active"{% endif %}>
-							{{ link_to('/login/logout','<span class="fa-stack fa-lg pull-left"><i class="fa fa-sign-out fa-stack-1x "></i></span>Logout') }}
-		                </li  {% endif %}>
+		                
 
 
 		            </ul>
